@@ -41,11 +41,18 @@ module.exports = {
                         loader: 'url-loader', // 匹配文件, 尝试转base64字符串打包到js中
                         // 配置limit, 超过8k, 不转, file-loader复制, 随机名, 输出文件
                         options: {
-                            limit: 8 * 1024,   
+                            limit: 8 * 1024,
                         },
                     },
                 ],
             },
+            { // webpack5默认内部不认识这些文件, 所以当做静态资源直接输出即可
+                test: /\.(eot|svg|ttf|woff|woff2)$/,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'font-[name].[hash:6][ext]'
+                }
+            }
         ],
     },
 
