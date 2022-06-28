@@ -1,9 +1,8 @@
-
 // // 轮播图逻辑
 // console.log('实现轮播图的业务逻辑')
 // // tab栏切换的逻辑
 // console.log('实现tabs标签页的逻辑')
-import './app.vue'
+// import './app.vue'
 import "./banner.js";
 import "./tabs.js";
 
@@ -17,5 +16,9 @@ img.src = imgUrl;
 document.body.appendChild(img);
 
 // 引入字体图标文件
-import './assets/fonts/iconfont.css'
+import "./assets/fonts/iconfont.css";
 
+import { createApp } from "vue";
+import App from "./app.vue";
+const app = createApp(App);
+app.mount("#app");
